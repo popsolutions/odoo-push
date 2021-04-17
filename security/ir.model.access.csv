@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_pushnotify_user_creds,access.pushnotify.user.creds,model_onesignal_credentials,push_notification_user,1,0,0,0
+access_pushnotify_manager_creds,access.pushnotify.mgr.creds,model_onesignal_credentials,push_notification_manager,1,1,1,1
+access_pushnotify_user_message_templ,access.pushnotify.user.msg.templ,model_onesignal_message,push_notification_user,1,0,0,0
+access_pushnotify_manager_message_templ,access.pushnotify.mgr.msg.templ,model_onesignal_message,push_notification_manager,1,1,1,1

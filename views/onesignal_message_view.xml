@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="onesignal_message_templ_form_view" model="ir.ui.view">
+        <field name="name">onesignal.message_templ.frm.view</field>
+        <field name="model">onesignal.message</field>
+        <field name="arch" type="xml">
+            <form string="Message Template">
+	            <header>
+	                <button type="object" name="send_push_notification" string="Send Push Notification" class="btn-primary" groups="pragmatic_push_notifications.push_notification_manager"/>
+	            </header>
+                <sheet>
+                    <group>
+                        <field name="app_id"/>
+                        <field name="template_name" required="1"/>
+                        <field name="message_title" required="1"/>
+                        <field name="message_content" required="1"/>
+                        <field name="send_to_chrome"/>
+                        <field name="send_to_mozilla"/>
+                        <field name="send_to_edge"/>
+                        <field name="icon" string="Icon (URL)" placeholder="https://raw.githubusercontent.com/NickSklyuev/onesignal-api-override/HEAD/logo.png?raw=true" required="1"/>
+                        <field name="launch_url" widget="url" required="1"/>
+                        <field name="priority"/>
+                        <field name="time_to_live"/>
+                        <field name="summary" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="onesignal_message_templ_tree_view" model="ir.ui.view">
+        <field name="name">onesignal.message_templ.frm.view</field>
+        <field name="model">onesignal.message</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="app_id"/>
+                <field name="template_name"/>
+                <field name="message_title"/>
+                <field name="message_content"/>
+                <field name="send_to_chrome"/>
+                <field name="send_to_mozilla"/>
+                <field name="send_to_edge"/>
+                <field name="launch_url" widget="url"/>
+                <field name="priority"/>
+                <field name="time_to_live"/>
+                <field name="summary"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.actions.act_window" id="onesignal_message_template_action">
+        <field name="name">Onesignal Message Template</field>
+        <field name="res_model">onesignal.message</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="os_message_template_main" name="Message Templates" parent="pragmatic_push_notifications.os_credentials" sequence="0"/>
+    <menuitem id="os_message_template_sub" name="Push Message Templates" parent="os_message_template_main" action="onesignal_message_template_action" />
+</odoo>
